@@ -6,7 +6,7 @@ before_install:
   - docker build -t dlrschris1193/react-tests -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run dlrschris1193/react-tests CI=true npm test
+  - docker run dlrschris1193/react-tests npm run test -- --watchAll=false
 
 after_success:
   - docker build -t dlrschris1193/multi-client ./client
